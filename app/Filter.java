@@ -1,0 +1,33 @@
+///usr/bin/env jbang "$0" "$@" ; exit $?
+//JAVA 23+
+//COMPILE_OPTIONS --enable-preview --release 23
+//RUNTIME_OPTIONS --enable-preview
+//DEPS de.vandermeer:asciitable:0.3.2
+//SOURCES org/github/jtama/gatherornot/Filter.java
+//SOURCES org/github/jtama/gatherornot/Reader.java
+//SOURCES org/github/jtama/gatherornot/Oeuvre.java
+
+import de.vandermeer.asciitable.AsciiTable;
+import org.github.jtama.gatherornot.Oeuvre;
+import org.github.jtama.gatherornot.Reader;
+
+import static org.github.jtama.gatherornot.Filter.filter;
+
+public void main() throws IOException {
+    Stream<Oeuvre> oeuvres = Reader.read().stream();
+    prettyPrint(oeuvres.gather(filter(oeuvre -> oeuvre.titre().contains("o"))));
+}
+
+void prettyPrint(Stream<Oeuvre> oeuvres) {
+    AsciiTable at = new AsciiTable();
+    at.addRule();
+    at.addRow("Année", "Titre", "Perdu 😱?");
+    at.addRule();
+    oeuvres.forEach(oeuvre -> {
+        synchronized (at) {
+            at.addRow(oeuvre.anneeParution(), oeuvre.titre(), oeuvre.perdue() ? "Oui" : "Non");
+            at.addRule();
+        }
+    });
+    System.out.println(at.render());
+}

@@ -1,0 +1,41 @@
+1595;Peines d'amour gagnées;true
+1612;Cardenio;true
+1610;La Tempête;false
+1623;Les Deux Gentilshommes de Vérone;false
+1602;Les Joyeuses Commères de Windsor;false
+1623;Mesure pour mesure;false
+1594;La Comédie des erreurs;false
+1600;Beaucoup de bruit pour rien;false
+1596;Peines d'amour perdues;false
+1595;Le Songe d'une nuit d'été;false
+1597;Le Marchand de Venise;false
+1623;Comme il vous plaira;false
+1594;La Mégère apprivoisée;false
+1608;Tout est bien qui finit bien;false
+1601;La Nuit des rois;false
+1611;Le Conte d'hiver;false
+1608;Périclès, prince de Tyr;false
+1613;Les Deux Nobles Cousins;false
+1593;Le Roi Jean;false
+1595;Richard II;false
+1597;Henri IV (première partie);false
+1597;Henri IV (deuxième partie);false
+1599;Henri V;false
+1591;Henri VI (première partie);false
+1592;Henri VI (deuxième partie);false
+1592;Henri VI (troisième partie);false
+1592;Richard III;false
+1613;Henri VIII;false
+1596;Édouard III;false
+1602;Troïlus et Cressida;false
+1607;Coriolan;false
+1594;Titus Andronicus;false
+1595;Roméo et Juliette;false
+1608;Timon d'Athènes;false
+1599;Jules César;false
+1611;Macbeth;false
+1601;Hamlet;false
+1606;Le Roi Lear;false
+1603;Othello;false
+1608;Antoine et Cléopâtre;false
+1611;Cymbeline;false
