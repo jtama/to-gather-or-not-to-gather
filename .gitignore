@@ -3,6 +3,12 @@ out/
 .idea/
 *.iml
 
+### slides ###
+slides/reveal.js
+slides/highlight.js
+slides/.asciidoctor
+slides/index.html
+
 ### Mac OS ###
 .DS_Store
 
