@@ -20,7 +20,7 @@ import java.util.stream.Stream;
 import static org.github.jtama.gatherornot.Merge.merge;
 
 public void main() throws IOException {
-    Stream<Oeuvre> oeuvres = Reader.read().stream();
+    Stream<Oeuvre> oeuvres = Reader.readUnordered().stream();
     prettyPrint(oeuvres.gather(merge(streamToBeMerged)));
 }
 
@@ -38,10 +38,12 @@ void prettyPrint(Stream<Tuple<String,Oeuvre>> tuples) {
 }
 
 private static Stream<String> streamToBeMerged = Stream.of(
-        "Don't remember.",
-        "Never heard of it.",
-        "Top of the charts during 7 weeks",
-        "Best play ever"
+        "Beaucoup de bruits pour rien",
+        "Je ne m'en souviens même plus.",
+        "Jamais entendu parlé",
+        "Numéro 1 sept semaines d'affilées",
+        "Meilleur pièce de l'année",
+        "Un chef d'oeuvre"
 );
 
 

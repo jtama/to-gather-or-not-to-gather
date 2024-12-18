@@ -1,0 +1,152 @@
+
+[%notitle.columns.is-vcentered.transparency]
+== Présentation
+
+[.column.is-one-third]
+--
+image::jta_1.png[]
+--
+
+[.column.is-3.has-text-left.medium]
+--
+Jérôme
+
+Tech Lead/Architecte
+--
+
+[.column]
+--
+[.vertical-align-middle]
+image:logo_onepoint.jpeg[width=50]
+onepoint BDX
+
+[.vertical-align-middle]
+icon:github[] @jtama image:avatar.png[width=100]
+--
+
+[%notitle]
+=== Quizz
+
+image::quizz.png[background,size=contain,alt="Shakespeare posant une question."]
+
+[%notitle]
+=== Quizz 1/3
+
+[source,java,highlight="3..6"]
+----
+public class Quizz {
+    public static void main(String[] args) {
+        Stream<Person> people = getPeople();
+        people.stream()
+            .map(person -> person.getName())
+            .toList();
+    }
+}
+----
+
+La ligne 5 est exécutée :
+[.fade-up%step]
+10 fois
+[.fade-up%step]
+1 fois
+[.fade-up%step]
+Non
+[.fade-up%step]
+_It depends_
+
+[%notitle]
+=== Quizz 2/3
+
+[source,java,highlight="3..6"]
+----
+public class Quizz {
+    public static void main(String[] args) {
+        Stream<Person> people = getPeople();
+        people.stream()
+            .map(person -> person.getName());
+    }
+}
+----
+
+La ligne 5 est exécutée :
+[.fade-up%step]
+10 fois
+[.fade-up%step]
+1 fois
+[.fade-up%step]
+Non
+
+[%notitle]
+=== Quizz 3/3
+
+[source,java,highlight="3..6"]
+----
+public class Quizz {
+    public static void main(String[] args) {
+        Stream<Person> people = getPeople();
+        people.stream()
+            .map(person -> person.getName())
+            .count();
+    }
+}
+----
+
+La ligne 5 est exécutée :
+[.fade-up%step]
+10 fois
+[.fade-up%step]
+1 fois
+[.fade-up%step]
+Non
+
+== Rappel
+
+[%step]
+* Intermédiaires, Finales.
+* L'invocation d'une opération finale est le déclencheur de l'exécution du pipeline.
+* Certaines opérations finales sont des courts-circuits.
+* ♾️
+
+[.notes]
+--
+L'interface collector
+--
+
+[%notitle.columns]
+== Collectors @ Gatherers
+
+[.column]
+--
+[source,java,highlight="1|3|5|7",data-fragment-index=0]
+----
+Collector collector;
+
+Collectors collectors;
+
+Collectors.groupingBy(...);
+
+stream.collect(collector);
+----
+--
+
+[.column]
+--
+[source,java,highlight="1|3|5|7",data-fragment-index=0]
+----
+Gatherer gatherer;
+
+Gatherers;
+
+Gatherers.windowFixed(...);
+
+stream.gather(gatherer);
+----
+--
+
+== On part en démo ?
+
+[%notitle,background-iframe="http://localhost:8443"]
+=== GO
+
+
+

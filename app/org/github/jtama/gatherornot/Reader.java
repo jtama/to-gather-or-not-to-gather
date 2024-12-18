@@ -16,4 +16,12 @@ public final class Reader {
                 .sorted(Comparator.comparing(Oeuvre::anneeParution))
                 .toList();
     }
+
+    public static List<Oeuvre> readUnordered() throws IOException {
+        return Files.readAllLines(Path.of("oeuvres.txt"))
+                .stream()
+                .map(line -> line.split(";"))
+                .map(values -> new Oeuvre(values[1], Integer.valueOf(values[0]), Boolean.parseBoolean(values[2])))
+                .toList();
+    }
 }

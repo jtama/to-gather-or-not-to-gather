@@ -18,10 +18,10 @@ import static org.github.jtama.gatherornot.WithIndex.withIndex;
 public void main() throws IOException {
     Stream<Oeuvre> oeuvres = Reader.read().stream();
     AtomicInteger count = new AtomicInteger(0);
-    prettyPrint(oeuvres.map(value -> new Tuple<>(count.getAndIncrement(), value)));
-    prettyPrint(oeuvres.parallel().map(value -> new Tuple<>(count.getAndIncrement(), value)));
-    prettyPrint(oeuvres.gather(withIndex()));
-    prettyPrint(oeuvres.parallel().gather(withIndex()));
+    //prettyPrint(oeuvres.map(value -> new Tuple<>(count.getAndIncrement(), value)));
+//    prettyPrint(oeuvres.parallel().map(value -> new Tuple<>(count.getAndIncrement(), value)));
+//    prettyPrint(oeuvres.gather(withIndex()));
+//    prettyPrint(oeuvres.parallel().gather(withIndex()));
 }
 
 void prettyPrint(Stream<Tuple<Integer, Oeuvre>> tuples) {

@@ -1,0 +1,29 @@
+= To Gather, or not to Gather, that is the question.
+
+== Run locally
+
+Use JBang !
+
+image:https://www.jbang.dev/assets/images/logo.png[Jbang logo, role=half-view-width, link=https://www.jbang.dev/]
+
+== Slides
+
+Readable version available on https://jtama.github.io/https://github.com/jtama/to-gather-or-not-to-gather/#/[Github Pages -> ici]
+
+
+=== Generate
+
+[source%linenums,bash]
+----
+jbang qrcode@maxandersen -i slides/images/qr_inlay.png <open feedback url> --qr-colo="linear-gradient(90deg, rgba(36,14,0,1) 0%, rgba(9,121,105,1) 35%, rgba(0,212,255,1) 100%);"
+jbang qrcode@maxandersen -i slides/image/github.png https://github.com/jtama/to-gather-or-not-to-gather
+podman container run --rm -v $(pwd)/slides:/documents -w /documents asciidoctor/docker-asciidoctor:1.80.0 asciidoctor-revealjs -r asciidoctor-diagram index.adoc
+----
+
+=== Run locally
+
+[source%linenums,bash]
+----
+podman container run --name prez --rm -d -p 8080:80 -v $(pwd)/slides:/usr/share/nginx/html nginx
+podman container run --name coder --rm -d -p 8443:8443 -v $(pwd)/app:/config/workspace ghcr.io/jtama/java_jbang_codeserver:latest
+----
