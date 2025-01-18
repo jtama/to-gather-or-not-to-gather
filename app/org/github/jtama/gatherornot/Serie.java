@@ -8,8 +8,9 @@ public class Serie {
 
     public static Gatherer<Oeuvre, State, List<Oeuvre>> series() {
         return Gatherer.ofSequential(
-                State::new,
+                () -> new State(),
                 Gatherer.Integrator.ofGreedy((state, oeuvre, downstream) -> {
+                    // First invocation or still the same year
                     if (state.year == null || oeuvre.anneeParution().equals(state.year)) {
                         state.oeuvres.add(oeuvre);
                         state.year = oeuvre.anneeParution();
@@ -21,19 +22,11 @@ public class Serie {
                     state.oeuvres.add(oeuvre);
                     return more;
                 }),
-                (state, downstream) -> downstream.push(state.getClubs()));
+                (state, downstream) -> downstream.push(state.oeuvres));
     }
 
     public static class State {
         private Integer year;
         private List<Oeuvre> oeuvres = new ArrayList<>();
-
-        public Integer getYear() {
-            return year;
-        }
-
-        public List<Oeuvre> getClubs() {
-            return oeuvres;
-        }
     }
 }

@@ -8,7 +8,7 @@ public class WithIndex {
     public static Gatherer<Oeuvre, Counting, Tuple<Integer, Oeuvre>> withIndex() {
 
         return Gatherer.ofSequential(
-                Counting::new,
+                () -> new Counting(),
                 Integrator.ofGreedy((state, person, downstream) -> downstream.push(new Tuple<>(state.index++, person))));
     }
 

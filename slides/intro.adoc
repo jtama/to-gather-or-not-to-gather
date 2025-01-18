@@ -32,19 +32,18 @@ image::quizz.png[background,size=contain,alt="Shakespeare posant une question."]
 [%notitle]
 === Quizz 1/3
 
-[source,java,highlight="3..6"]
+[source,java,highlight="3..5"]
 ----
 public class Quizz {
     public static void main(String[] args) {
-        Stream<Person> people = getPeople();
-        people.stream()
+        getPeople()
             .map(person -> person.getName())
             .toList();
     }
 }
 ----
 
-La ligne 5 est exécutée :
+La ligne 4 est exécutée :
 [.fade-up%step]
 10 fois
 [.fade-up%step]
@@ -57,18 +56,17 @@ _It depends_
 [%notitle]
 === Quizz 2/3
 
-[source,java,highlight="3..6"]
+[source,java,highlight="3..4"]
 ----
 public class Quizz {
     public static void main(String[] args) {
-        Stream<Person> people = getPeople();
-        people.stream()
+        getPeople()
             .map(person -> person.getName());
     }
 }
 ----
 
-La ligne 5 est exécutée :
+La fonction passée en paramètre de la méthode `map` est exécutée :
 [.fade-up%step]
 10 fois
 [.fade-up%step]
@@ -79,19 +77,18 @@ Non
 [%notitle]
 === Quizz 3/3
 
-[source,java,highlight="3..6"]
+[source,java,highlight="3..5"]
 ----
 public class Quizz {
     public static void main(String[] args) {
-        Stream<Person> people = getPeople();
-        people.stream()
+        getPeople()
             .map(person -> person.getName())
             .count();
     }
 }
 ----
 
-La ligne 5 est exécutée :
+La fonction passée en paramètre de la méthode `map` est exécutée :
 [.fade-up%step]
 10 fois
 [.fade-up%step]
@@ -117,11 +114,9 @@ L'interface collector
 
 [.column]
 --
-[source,java,highlight="1|3|5|7",data-fragment-index=0]
+[source,java,highlight="1|3|5",data-fragment-index=0]
 ----
 Collector collector;
-
-Collectors collectors;
 
 Collectors.groupingBy(...);
 
@@ -131,11 +126,9 @@ stream.collect(collector);
 
 [.column]
 --
-[source,java,highlight="1|3|5|7",data-fragment-index=0]
+[source,java,highlight="1|3|5",data-fragment-index=0]
 ----
 Gatherer gatherer;
-
-Gatherers;
 
 Gatherers.windowFixed(...);
 
@@ -143,10 +136,26 @@ stream.gather(gatherer);
 ----
 --
 
+=== L'interface Gatherer
+
+
+[source, java, highlight=3|5|7|9|11]
+----
+package java.util.stream;
+
+public interface Gatherer<T, A, R> {
+
+    Integrator<A, T, R> integrator();
+
+    default Supplier<A> initializer();
+
+    default BinaryOperator<A> combiner();
+
+    default BiConsumer<A, Downstream<? super R>> finisher();
+}
+----
+
 == On part en démo ?
 
 [%notitle,background-iframe="http://localhost:8443"]
 === GO
-
-
-

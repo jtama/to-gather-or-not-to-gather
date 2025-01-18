@@ -1,3 +1,11 @@
+== Famous last words
+
+[.fragment]
+Oui, ça peut servir à quelque chose !
+[.fragment]
+N'en abusez pas quand même...
+
+
 [.columns]
 === Merci !
 

@@ -5,12 +5,19 @@ import java.util.stream.Gatherer;
 
 public class Filter {
     public static Gatherer<Oeuvre, ?, Oeuvre> filter(Predicate<Oeuvre> filter){
-
-        return Gatherer.of(Gatherer.Integrator.ofGreedy((_, person, downstream) -> {
-            if(filter.test(person)){
-                return downstream.push(person);
+        return new Gatherer<>() {
+            @Override
+            public Gatherer.Integrator<Object, Oeuvre, Oeuvre> integrator() {
+                return new Integrator<>() {
+                    @Override
+                    public boolean integrate(Object state, Oeuvre oeuvre, Downstream<? super Oeuvre> downstream) {
+                        if(filter.test(oeuvre)){
+                            return downstream.push(oeuvre);
+                        }
+                        return true;
+                    }
+                };
             }
-            return true;
-        }));
+        };
     }
 }

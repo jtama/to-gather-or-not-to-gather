@@ -15,7 +15,7 @@ import static org.github.jtama.gatherornot.TakeUntil.takeUntil;
 
 public void main() throws IOException {
     Stream<Oeuvre> oeuvres = Reader.read().stream();
-    prettyPrint(oeuvres.gather(takeUntil(oeuvre -> oeuvre.titre().startsWith("B"))));
+    prettyPrint(oeuvres.gather(takeUntil(oeuvre -> oeuvre.titre().startsWith("T"))));
 }
 
 void prettyPrint(Stream<Oeuvre> oeuvres) {
