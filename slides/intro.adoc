@@ -21,6 +21,9 @@ image:logo_onepoint.jpeg[width=50]
 onepoint BDX
 
 [.vertical-align-middle]
+image:qualiopi.png[]
+
+[.vertical-align-middle]
 icon:github[] @jtama image:avatar.png[width=100]
 --
 
