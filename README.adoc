@@ -16,7 +16,7 @@ Readable version available on https://jtama.github.io/https://github.com/jtama/t
 [source%linenums,bash]
 ----
 jbang qrcode@maxandersen -i slides/images/feedback <open feedback url> --qr-colo="linear-gradient(90deg, rgba(36,14,0,1) 0%, rgba(9,121,105,1) 35%, rgba(0,212,255,1) 100%);"
-jbang qrcode@maxandersen -i slides/image/github.png https://github.com/jtama/to-gather-or-not-to-gather
+jbang qrcode@maxandersen -i slides/images/github.png https://github.com/jtama/to-gather-or-not-to-gather
 podman container run --rm -v $(pwd)/slides:/documents -w /documents asciidoctor/docker-asciidoctor:1.80.0 asciidoctor-revealjs -r asciidoctor-diagram index.adoc
 ----
 
