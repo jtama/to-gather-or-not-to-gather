@@ -40,9 +40,9 @@ void prettyPrint(Stream<Tuple<String,Oeuvre>> tuples) {
 private static Stream<String> streamToBeMerged = Stream.of(
         "Beaucoup de bruits pour rien",
         "Je ne m'en souviens même plus.",
-        "Jamais entendu parlé",
+        "Jamais entendu parler",
         "Numéro 1 sept semaines d'affilées",
-        "Meilleur pièce de l'année",
+        "Meilleure pièce de l'année",
         "Un chef d'oeuvre"
 );
 

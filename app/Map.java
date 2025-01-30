@@ -15,7 +15,7 @@ import static org.github.jtama.gatherornot.Map.map;
 import static org.github.jtama.gatherornot.Map.mapSneakyThrowing;
 
 public void main() throws IOException {
-    prettyPrint(Reader.read().stream().gather(map(Oeuvre::titre)));
+    //prettyPrint(Reader.read().stream().gather(map(Oeuvre::titre)));
     prettyPrint(Reader.read().stream().gather(mapSneakyThrowing(_ -> {
         throw new IOException("BOUM");
     })));
