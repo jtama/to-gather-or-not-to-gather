@@ -21,9 +21,6 @@ image:logo_onepoint.jpeg[width=50]
 onepoint BDX
 
 [.vertical-align-middle]
-image:qualiopi.png[]
-
-[.vertical-align-middle]
 icon:github[] @jtama image:avatar.png[width=100]
 --
 
@@ -148,9 +145,9 @@ package java.util.stream;
 
 public interface Gatherer<T, A, R> {
 
-    Integrator<A, T, R> integrator();
-
     default Supplier<A> initializer();
+
+    Integrator<A, T, R> integrator();
 
     default BinaryOperator<A> combiner();
 
