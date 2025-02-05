@@ -1,6 +1,7 @@
 = To Gather, or not to Gather, that is the question
 :docinfo: private
 :source-highlighter: highlight.js
+:highlightjs-theme: highlight.js/atom-one-light.min.css
 :highlightjsdir: highlight.js
 :autofit-option:
 :icons: font
