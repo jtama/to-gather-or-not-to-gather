@@ -6,15 +6,13 @@ import java.util.stream.Stream;
 
 public class Merge {
 
-    public static <T> Gatherer<Oeuvre, Iterator<T>, Tuple<T, Oeuvre>> merge(Stream<T> stream) {
+    public static <T, Y> Gatherer<Y, Iterator<T>, Tuple<T, Y>> merge(Stream<T> stream) {
         return Gatherer.ofSequential(
                 stream::iterator,
-                Gatherer.Integrator.of((state, person, downstream) -> {
+                Gatherer.Integrator.of((state, item, downstream) -> {
                     if (state.hasNext())
-                        return downstream.push(new Tuple<>(state.next(), person));
+                        return downstream.push(new Tuple<>(state.next(), item));
                     return false;
-                }),
-                Gatherer.defaultFinisher());
+                }));
     }
 }
- 

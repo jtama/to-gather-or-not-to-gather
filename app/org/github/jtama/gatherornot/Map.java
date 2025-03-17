@@ -5,18 +5,18 @@ import java.util.stream.Gatherer;
 
 public class Map {
 
-    public static Gatherer<Oeuvre, ?, String> map(Function<Oeuvre, String> mapper) {
+    public static <T,U> Gatherer<T, ?, U> map(Function<T, U> mapper) {
         return Gatherer.of(
-                Gatherer.Integrator.ofGreedy((_, person, downstream) -> downstream.push(mapper.apply(person)))
+                Gatherer.Integrator.ofGreedy((_, item, downstream) -> downstream.push(mapper.apply(item)))
         );
     }
 
 
-    public static Gatherer<Oeuvre, ?, String> mapSneakyThrowing(ThrowingFunction<Oeuvre, String> mapper) {
+    public static <T,U> Gatherer<T, ?, U> mapSneakyThrowing(ThrowingFunction<T, U> mapper) {
         return Gatherer.of(Gatherer.Integrator.ofGreedy(
-                (_, person, downstream) -> {
+                (_, item, downstream) -> {
                     try {
-                        return downstream.push(mapper.apply(person));
+                        return downstream.push(mapper.apply(item));
                     } catch (Exception e) {
                         throw new RuntimeException(e);
                     }

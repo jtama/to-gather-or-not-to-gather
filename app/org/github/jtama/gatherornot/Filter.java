@@ -2,22 +2,17 @@ package org.github.jtama.gatherornot;
 
 import java.util.function.Predicate;
 import java.util.stream.Gatherer;
+import java.util.stream.Gatherer.Integrator;
 
 public class Filter {
-    public static Gatherer<Oeuvre, ?, Oeuvre> filter(Predicate<Oeuvre> filter){
-        return new Gatherer<>() {
-            @Override
-            public Gatherer.Integrator<Object, Oeuvre, Oeuvre> integrator() {
-                return new Integrator<>() {
-                    @Override
-                    public boolean integrate(Object state, Oeuvre oeuvre, Downstream<? super Oeuvre> downstream) {
-                        if(filter.test(oeuvre)){
-                            return downstream.push(oeuvre);
+    public static <T> Gatherer<T, ?, T> filter(Predicate<T> filter) {
+        return Gatherer.of(
+                Integrator.ofGreedy(
+                    (_, item, downstream) -> {
+                        if (filter.test(item)) {
+                            return downstream.push(item);
                         }
                         return true;
-                    }
-                };
-            }
-        };
+                    }));
     }
 }

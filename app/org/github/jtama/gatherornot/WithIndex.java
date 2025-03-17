@@ -5,14 +5,15 @@ import java.util.stream.Gatherer.Integrator;
 
 public class WithIndex {
 
-    public static Gatherer<Oeuvre, Counting, Tuple<Integer, Oeuvre>> withIndex() {
+    public static <T> Gatherer<T, Counting, Tuple<Integer, T>> withIndex() {
 
         return Gatherer.ofSequential(
                 () -> new Counting(),
-                Integrator.ofGreedy((state, person, downstream) -> downstream.push(new Tuple<>(state.index++, person))));
+                Integrator.ofGreedy((state, item, downstream) -> downstream.push(new Tuple<>(state.index++, item))));
     }
 
     static class Counting {
         int index;
     }
 }
+

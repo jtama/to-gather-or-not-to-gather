@@ -1,6 +1,6 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
 //JAVA 23+
-//COMPILE_OPTIONS --enable-preview --release 23
+//COMPILE_OPTIONS --enable-preview --release 24
 //RUNTIME_OPTIONS --enable-preview
 //DEPS de.vandermeer:asciitable:0.3.2
 //SOURCES org/github/jtama/gatherornot/Filter.java
@@ -15,7 +15,7 @@ import static org.github.jtama.gatherornot.Filter.filter;
 
 public void main() throws IOException {
     Stream<Oeuvre> oeuvres = Reader.read().stream();
-    prettyPrint(oeuvres.gather(filter(oeuvre -> oeuvre.titre().contains("o"))));
+    prettyPrint(oeuvres.gather(filter(oeuvre -> oeuvre.titre().contains("N"))));
 }
 
 void prettyPrint(Stream<Oeuvre> oeuvres) {

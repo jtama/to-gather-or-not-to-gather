@@ -16,12 +16,3 @@ Le dépôt github :
 
 image:qrcode_github.png[alt="https://github.com/jtama/to-gather-or-not-to-gather",width=400]
 --
-
-[.column]
---
-
-[.important-text.has-text-left.vertical-align-middle]
-Feedback :
-
-image:qrcode_feedback.png[alt="LINK TO OPENFEEDBACK",width=400]
---

@@ -20,7 +20,7 @@ import static org.github.jtama.gatherornot.Serie.series;
 
 public void main() throws IOException {
     Stream<Oeuvre> oeuvres = Reader.read().stream();
-    prettyPrint(oeuvres.gather(series()));
+    prettyPrint(oeuvres.gather(series(Oeuvre::anneeParution)));
 }
 
 void prettyPrint(Stream<List<Oeuvre>> oeuvresByYear) {

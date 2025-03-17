@@ -8,16 +8,9 @@
 }
 
 body {
-    &::after {
-        content: url("../images/logo_event.png");
-        position: fixed;
-        left: 4px;
-        bottom: 9px;
-        width: 100px;
-    }
 
     footer {
-        z-index: 10;
+        z-index: -10;
         position: absolute;
         left: 0%;
         width: 100%;
