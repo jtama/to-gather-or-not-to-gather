@@ -1,5 +1,7 @@
 = To Gather, or not to Gather, that is the question.
 
+image:slides/images/title_image.avif[]
+
 == Run locally
 
 Use JBang !
