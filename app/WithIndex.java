@@ -1,6 +1,6 @@
 ///usr/bin/env jbang "$0" "$@" ; exit $?
-//JAVA 23+
-//COMPILE_OPTIONS --enable-preview --release 23
+//JAVA 24+
+//COMPILE_OPTIONS --enable-preview --release 24
 //RUNTIME_OPTIONS --enable-preview
 //DEPS de.vandermeer:asciitable:0.3.2
 //SOURCES org/github/jtama/gatherornot/Oeuvre.java
